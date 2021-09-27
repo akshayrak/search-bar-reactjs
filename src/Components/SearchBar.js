@@ -11,11 +11,22 @@ function SearchBar({ placeholder, data }) {
           type="text"
           placeholder={placeholder}
         />
-        <button>Search</button>
       </div>
       <div className="dataResult">
         {data.map((value, key) => {
-          return <div>{query&&value.includes(query)&&value}</div>;
+          let flag=query && value.includes(query)
+          return (
+            <>
+            {flag&&<ul>
+              <li>
+              <a href="http://google.com">
+                {flag && value}
+              </a>
+              </li>
+            </ul>}
+             
+            </>
+          );
         })}
       </div>
     </div>
